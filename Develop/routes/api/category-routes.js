@@ -3,7 +3,7 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
-router.get('/', (req, res) => {
+
   router.get('/', (req, res) => {
     Category.findAll({
       include: [Product],
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       .then((categories) => res.json(categories))
       .catch((err) => res.status(500).json(err));
   });
-});
+
 
 router.get('/:id', (req, res) => {
   Category.findOne({
